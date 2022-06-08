@@ -1,7 +1,7 @@
 class State:
     """ Abstract base class for all parsing states """
-    def __init__(self, name):
-        self._name = name
+    def __init__(self, cls):
+        self._name = cls.__name__
         pass
 
     @property
