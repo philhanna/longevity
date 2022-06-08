@@ -42,3 +42,9 @@ response = requests.post('https://www.ssa.gov/cgi-bin/longevity.cgi', data={
 text = response.text
 print(text)
 ```
+
+## Tasks
+
+1. install requests module (DONE)
+2. 
+
