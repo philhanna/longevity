@@ -1,8 +1,10 @@
 from datetime import date
 
+SSI_URL = "https://www.ssa.gov/cgi-bin/longevity.cgi"
 
-def split_date(dob: date):
-    """ Extracts date fields and formats them the way the
+
+def get_date_fields(dob: date):
+    """ Extracts date fields and formats them in the way the
     cgi program expects them."""
     monthofbirth = f"{dob.month - 1}"
     dayofbirth = f"{dob.day:02d}"
@@ -10,5 +12,16 @@ def split_date(dob: date):
     return monthofbirth, dayofbirth, yearofbirth
 
 
+def format_post_data(sex: str, dob: date) -> dict :
+    mm, dd, yyyy = get_date_fields(dob)
+    postdata = {
+        "sex": sex,
+        "monthofbirth": mm,
+        "dayofbirth": dd,
+        "yearofbirth": yyyy,
+    }
+    return postdata
+
+
 def get_longevity(sex: str, dob: date):
-    monthofbirth, dayofbirth, yearofbirth = split_date(dob)
+    postdata = format_post_data(sex, dob)
