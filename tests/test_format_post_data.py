@@ -1,7 +1,7 @@
 from unittest import TestCase
 from datetime import date
 
-from longevity.longevity import format_post_data
+from longevity import Longevity
 
 
 class TestFormatPostData(TestCase):
@@ -14,7 +14,7 @@ class TestFormatPostData(TestCase):
             "dayofbirth": "18",
             "yearofbirth": "1943",
         }
-        actual = format_post_data("m", dob)
+        actual = Longevity.format_post_data("m", dob)
         self.assertEqual(expected, actual)
 
     def test_format_post_data_barack_obama(self):
@@ -25,6 +25,6 @@ class TestFormatPostData(TestCase):
             "dayofbirth": "04",
             "yearofbirth": "1961",
         }
-        actual = format_post_data("m", dob)
+        actual = Longevity.format_post_data("m", dob)
         self.assertEqual(expected, actual)
 
