@@ -19,10 +19,17 @@ month and year)
 #### `yearofbirth`
 Four digit year from 1904 to 2022
 
+> **Note**: A Python `date` object can be constructed from a string
+> in the format "yyyy-mm-dd" (two-digit month and day values!)
+> using the `date.fromisoformat()` method.  You need to import this
+> with `from datetime import date`
+
 ### Send a POST request to the URL
 Use the Python `requests` module to send
 the request and receive the response.
-The URL is https://www.ssa.gov/cgi-bin/longevity.cgi
+
+The URL for the cgi program at the Social Security Administration that
+actually does the calculation is https://www.ssa.gov/cgi-bin/longevity.cgi
 
 ### Handle the response HTML
 Parse the response HTML to get the desired output.
