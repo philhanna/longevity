@@ -1,3 +1,4 @@
+from time import strptime
 from unittest import TestCase
 from datetime import date
 
@@ -7,12 +8,23 @@ from longevity.longevity import get_date_fields, format_post_data
 class TestFormatPostData(TestCase):
 
     def test_format_post_data_keith_richards(self):
-        dob = date(1943, 12, 18)
+        dob = date.fromisoformat("1943-12-18")
         expected = {
             "sex" : "m",
             "monthofbirth": "11",
             "dayofbirth": "18",
             "yearofbirth": "1943",
+        }
+        actual = format_post_data("m", dob)
+        self.assertEqual(expected, actual)
+
+    def test_format_post_data_barack_obama(self):
+        dob = date.fromisoformat("1961-08-04")
+        expected = {
+            "sex" : "m",
+            "monthofbirth": "7",
+            "dayofbirth": "04",
+            "yearofbirth": "1961",
         }
         actual = format_post_data("m", dob)
         self.assertEqual(expected, actual)
