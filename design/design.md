@@ -29,7 +29,8 @@ Use the Python `requests` module to send
 the request and receive the response.
 
 The URL for the cgi program at the Social Security Administration that
-actually does the calculation is https://www.ssa.gov/cgi-bin/longevity.cgi
+actually does the calculation is
+[https://www.ssa.gov/cgi-bin/longevity.cgi](https://www.ssa.gov/cgi-bin/longevity.cgi)
 
 ### Handle the response HTML
 Parse the response HTML to get the desired output.
