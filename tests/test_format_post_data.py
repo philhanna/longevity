@@ -1,8 +1,7 @@
-from time import strptime
 from unittest import TestCase
 from datetime import date
 
-from longevity.longevity import get_date_fields, format_post_data
+from longevity.longevity import format_post_data
 
 
 class TestFormatPostData(TestCase):
