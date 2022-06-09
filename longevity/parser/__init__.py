@@ -3,5 +3,4 @@ __all__ = [
     'InitState',
 ]
 
-from .state import State
-from .init_state import InitState
+from .state import State, InitState
