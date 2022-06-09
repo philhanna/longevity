@@ -1,3 +1,5 @@
+import re
+
 from bs4 import BeautifulSoup
 
 
@@ -12,9 +14,18 @@ class ResponseParser:
         tds = [x for x in tr.findAll("td")]
         assert len(tds) >= 3
 
-        self._current_age = tds[0].contents[0]
-        self._additional_years = tds[1].contents[0]
-        self._total_years = tds[2].contents[0]
+        current_age_string = tds[0].contents[0]
+        age = 0
+        m = re.match(r'(\d+)', current_age_string)
+        if m:
+            age = float(m.group(1))
+        m = re.search(r' and (\d+) months', current_age_string)
+        if m:
+            age += float(m.group(1)) / 12.0
+
+        self._current_age = age
+        self._additional_years = float(tds[1].contents[0])
+        self._total_years = float(tds[2].contents[0])
 
     @property
     def current_age(self):

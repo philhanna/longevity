@@ -12,17 +12,17 @@ class TestResponseParser(TestCase):
             self.rp = ResponseParser(fp)
 
     def test_current_age(self):
-        expected = "68 and 6 months"
+        expected = 68.5
         actual = self.rp.current_age
         self.assertEqual(expected, actual)
 
     def test_additional_years(self):
-        expected = "16.5"
+        expected = 16.5
         actual = self.rp.additional_years
         self.assertEqual(expected, actual)
 
     def test_total_years(self):
-        expected = "85.0"
+        expected = 85
         actual = self.rp.total_years
         self.assertEqual(expected, actual)
 
