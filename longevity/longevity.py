@@ -1,4 +1,7 @@
+import requests
 from datetime import date
+
+from longevity import ResponseParser
 
 SSA_URL = "https://www.ssa.gov/cgi-bin/longevity.cgi"
 
@@ -36,6 +39,22 @@ class Longevity:
         return postdata
 
     def __init__(self, sex: str, dob: date):
+        """ Main method. Looks up life expectancy for specified sex and date of birth """
         self.sex = sex
         self.dob = dob
-        pass
+        postdata = Longevity.format_post_data(sex, dob)
+        response = requests.post(SSA_URL, data=postdata)
+        content = response.content
+        self.rp = ResponseParser(content)
+
+    @property
+    def current_age(self):
+        return self.rp.current_age
+
+    @property
+    def additional_years(self):
+        return self.rp.additional_years
+
+    @property
+    def total_years(self):
+        return self.rp.total_years
