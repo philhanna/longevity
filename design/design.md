@@ -51,7 +51,7 @@ package
 
 
 #### Current age
-This will be stated as number of years and months
+Current age, in decimal years.
 
 #### Expected number of additional years
 Decimal years, e.g., 13.5
