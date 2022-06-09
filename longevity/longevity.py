@@ -1,6 +1,6 @@
 from datetime import date
 
-SSI_URL = "https://www.ssa.gov/cgi-bin/longevity.cgi"
+SSA_URL = "https://www.ssa.gov/cgi-bin/longevity.cgi"
 
 
 class Longevity:

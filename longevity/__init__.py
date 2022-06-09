@@ -1,5 +1,7 @@
 __all__ = [
-    'Longevity'
+    'ResponseParser',
+    'Longevity',
 ]
 
+from .response_parser import ResponseParser
 from .longevity import Longevity
