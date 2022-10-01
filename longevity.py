@@ -25,7 +25,7 @@ Gets life expectency from the Social Security Administration's website.
 parser.add_argument('sex', help='gender', choices=['m', 'f'])
 parser.add_argument('dob', help='date of birth (MM/DD/YYYY)')
 parser.add_argument('-v', '--version', action="version",
-                    version=f"{get_version()}",
+                    version=f"version={get_version()}",
                     help='displays version number and exit')
 kwargs = vars(parser.parse_args())
 try:
