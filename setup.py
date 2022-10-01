@@ -4,7 +4,7 @@ setup(
     name='longevity',
     version='1.0.0',
     packages=['tests', 'longevity'],
-    requires=[
+    install_requires=[
         'beautifulsoup4==4.11.1',
         'bs4==0.0.1',
         'certifi==2022.9.24',
