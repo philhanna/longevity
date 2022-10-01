@@ -1,7 +1,10 @@
+SSA_URL = "https://www.ssa.gov/cgi-bin/longevity.cgi"
+
 __all__ = [
+    'SSA_URL',
     'ResponseParser',
-    'Longevity',
+    'Requester',
 ]
 
 from .response_parser import ResponseParser
-from .longevity import Longevity
+from .requester import Requester
