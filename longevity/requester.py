@@ -9,23 +9,36 @@ class Requester:
 
     def __init__(self, sex: str, dob: date):
         """ Main method. Looks up life expectancy for specified sex and date of birth """
-        self.sex = sex
-        self.dob = dob
+        self._sex = sex
+        self._dob = dob
         postdata = Requester.format_post_data(sex, dob)
         content = self.post_request(postdata)
-        self.rp = ResponseParser(content)
+        self._rp = ResponseParser(content)
+        self._death_date = self._rp.get_death_date(dob)
+
+    @property
+    def sex(self):
+        return self._sex
+
+    @property
+    def dob(self):
+        return self._dob
 
     @property
     def current_age(self):
-        return self.rp.current_age
+        return self._rp.current_age
 
     @property
     def additional_years(self):
-        return self.rp.additional_years
+        return self._rp.additional_years
 
     @property
     def total_years(self):
-        return self.rp.total_years
+        return self._rp.total_years
+
+    @property
+    def death_date(self):
+        return self._death_date
 
     @staticmethod
     def post_request(postdata):

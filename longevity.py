@@ -1,5 +1,6 @@
 #! /usr/bin/python
 import argparse
+from datetime import date
 
 from longevity import Main
 
@@ -33,5 +34,6 @@ try:
     print(f"current age      = {result.current_age}")
     print(f"additional years = {result.additional_years}")
     print(f"total years      = {result.total_years}")
+    print(f"expiration date  = {date.strftime(result.death_date, '%m/%d/%Y')}")
 except ValueError as ex:
     print(ex)
