@@ -25,7 +25,10 @@ parser.add_argument('sex', help='gender', choices=['m', 'f'])
 parser.add_argument('dob', help='date of birth (MM/DD/YYYY)')
 parser.add_argument('-v', '--version', action="version",
                     version=f"{get_version()}",
-                    help='display version number')
+                    help='displays version number and exit')
 kwargs = vars(parser.parse_args())
 main = Main(**kwargs)
-main.run()
+result = main.run()
+print(f"current age      = {result.current_age}")
+print(f"additional years = {result.additional_years}")
+print(f"total years      = {result.total_years}")

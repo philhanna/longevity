@@ -1,5 +1,7 @@
 from datetime import datetime, date
 
+from longevity import Requester
+
 
 class Main:
     """Mainline for running the calculator"""
@@ -19,4 +21,5 @@ class Main:
         return self._dob
 
     def run(self):
-        pass
+        """Runs the calculator"""
+        return Requester(self.sex, self.dob)
