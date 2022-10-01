@@ -8,6 +8,7 @@ cd longevity
 pip install -r requirements.txt
 pip install .
 ```
+then copy `longevity.py` to a directory in your `PATH`.
 
 ## References:
 - [Github repository](https://github.com/philhanna/longevity)
