@@ -27,8 +27,11 @@ parser.add_argument('-v', '--version', action="version",
                     version=f"{get_version()}",
                     help='displays version number and exit')
 kwargs = vars(parser.parse_args())
-main = Main(**kwargs)
-result = main.run()
-print(f"current age      = {result.current_age}")
-print(f"additional years = {result.additional_years}")
-print(f"total years      = {result.total_years}")
+try:
+    main = Main(**kwargs)
+    result = main.run()
+    print(f"current age      = {result.current_age}")
+    print(f"additional years = {result.additional_years}")
+    print(f"total years      = {result.total_years}")
+except ValueError as ex:
+    print(ex)
