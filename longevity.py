@@ -1,6 +1,8 @@
 #! /usr/bin/python
 import argparse
 
+from longevity import Main
+
 
 def get_version():
     import subprocess, re
@@ -24,5 +26,6 @@ parser.add_argument('dob', help='date of birth (MM/DD/YYYY)')
 parser.add_argument('-v', '--version', action="version",
                     version=f"{get_version()}",
                     help='display version number')
-args = parser.parse_args()
-print(f"DEBUG: {args}")
+kwargs = vars(parser.parse_args())
+main = Main(**kwargs)
+main.run()
