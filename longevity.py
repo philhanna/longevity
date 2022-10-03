@@ -20,7 +20,7 @@ def get_version():
 
 
 parser = argparse.ArgumentParser(description="""
-Gets life expectency from the Social Security Administration's website.
+Gets life expectancy from the Social Security Administration's website.
 """)
 parser.add_argument('sex', help='gender', choices=['m', 'f'])
 parser.add_argument('dob', help='date of birth (MM/DD/YYYY)')
