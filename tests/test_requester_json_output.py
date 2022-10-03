@@ -1,3 +1,4 @@
+import json
 from datetime import date
 
 from longevity import Requester
@@ -10,9 +11,13 @@ def test_with_keith_richards(monkeypatch):
     sex = "m"
     dob = date.fromisoformat("1943-12-18")
     requester = Requester(sex, dob)
-    assert 78.75 == requester.current_age
-    assert 9.5 == requester.additional_years
-    assert 88.3, requester.total_years
+    jsonstr = requester.get_json_output()
+    data = json.loads(jsonstr)
+
+    assert data.get("current_age", None) == 78.75
+    assert data.get("additional_years", None) == 9.5
+    assert data.get("total_years", None) == 88.3
+    assert data.get("death_date") == "2032-04-05"
 
 
 def test_with_barack_obama(monkeypatch):
@@ -21,6 +26,10 @@ def test_with_barack_obama(monkeypatch):
     sex = "m"
     dob = date.fromisoformat("1961-08-04")
     requester = Requester(sex, dob)
-    assert 61 == requester.current_age
-    assert 22.1 == requester.additional_years
-    assert 83.3 == requester.total_years
+    jsonstr = requester.get_json_output()
+    data = json.loads(jsonstr)
+
+    assert data.get("current_age", None) == 61
+    assert data.get("additional_years", None) == 22.1
+    assert data.get("total_years", None) == 83.3
+    assert data.get("death_date") == "2044-11-21"

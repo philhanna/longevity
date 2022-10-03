@@ -6,6 +6,7 @@ from bs4 import BeautifulSoup
 
 class ResponseParser:
     """Extracts the life expectency results from the HTML"""
+
     def __init__(self, fp):
 
         soup = BeautifulSoup(fp, 'html.parser')

@@ -12,7 +12,7 @@ class Requester:
         self._sex = sex
         self._dob = dob
         postdata = Requester.format_post_data(sex, dob)
-        content = self.post_request(postdata)
+        content = Requester.post_request(postdata)
         self._rp = ResponseParser(content)
         self._death_date = self._rp.get_death_date(dob)
 
@@ -76,6 +76,17 @@ class Requester:
         dayofbirth = f"{dob.day:02d}"
         yearofbirth = f"{dob.year}"
         return monthofbirth, dayofbirth, yearofbirth
+
+    def get_json_output(self):
+        import json
+        return json.dumps({
+            'sex': self.sex,
+            'dob': self.dob.isoformat(),
+            'current_age': self.current_age,
+            'additional_years': self.additional_years,
+            'total_years': self.total_years,
+            'death_date': self.death_date.isoformat()
+        }, sort_keys=True, indent=4)
 
     @staticmethod
     def format_post_data(sex: str, dob: date) -> dict:

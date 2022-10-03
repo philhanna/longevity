@@ -1,8 +1,7 @@
-import os.path
+from pathlib import Path
 
-my_dir = os.path.dirname(__file__)
-project_root_dir = os.path.abspath(os.path.join(my_dir, ".."))
-testdata = os.path.join(project_root_dir, "testdata")
+project_root_dir = Path(__file__).parent.parent
+testdata = project_root_dir / "testdata"
 
 __all__ = [
     'project_root_dir',

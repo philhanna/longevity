@@ -1,4 +1,4 @@
-from datetime import datetime, date
+from datetime import date
 
 from longevity import Requester
 
@@ -8,9 +8,7 @@ class Main:
 
     def __init__(self, **kwargs):
         self._sex = kwargs["sex"]
-        dobstr = kwargs["dob"]
-        dob = datetime.strptime(dobstr, "%m/%d/%Y")
-        self._dob = dob.date()
+        self._dob = date.fromisoformat(kwargs["dob"])
 
     @property
     def sex(self) -> str:
