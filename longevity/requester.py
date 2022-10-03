@@ -17,31 +17,31 @@ class Requester:
         self._death_date = self._rp.get_death_date(dob)
 
     @property
-    def sex(self):
+    def sex(self) -> str:
         return self._sex
 
     @property
-    def dob(self):
+    def dob(self) -> date:
         return self._dob
 
     @property
-    def current_age(self):
+    def current_age(self) -> float:
         return self._rp.current_age
 
     @property
-    def additional_years(self):
+    def additional_years(self) -> float:
         return self._rp.additional_years
 
     @property
-    def total_years(self):
+    def total_years(self) -> float:
         return self._rp.total_years
 
     @property
-    def death_date(self):
+    def death_date(self) -> date:
         return self._death_date
 
     @staticmethod
-    def post_request(postdata):
+    def post_request(postdata) -> bytes:
         """Posts the request and gets the response.
 
         :param postdata: a dictionary of the parameters, e.g., for Keith Richards:
@@ -60,7 +60,7 @@ class Requester:
         return content
 
     @staticmethod
-    def get_date_fields(dob: date):
+    def get_date_fields(dob: date) -> tuple[str, str, str]:
         """ Extracts date fields and formats them in the way the
         cgi program expects them.
 

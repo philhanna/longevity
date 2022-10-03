@@ -24,22 +24,23 @@ class ResponseParser:
         if m:
             age += float(m.group(1)) / 12.0
 
-        self._current_age = age
-        self._additional_years = float(tds[1].contents[0])
-        self._total_years = float(tds[2].contents[0])
+        self._current_age: float = age
+        self._additional_years: float = float(tds[1].contents[0])
+        self._total_years: float = float(tds[2].contents[0])
 
     def get_death_date(self, dob) -> date:
         """Estimates the date of death"""
         return dob + timedelta(days=self.total_years * 365.25)
+        # Yes, I know this is only an approximation ... 365.25
 
     @property
-    def current_age(self):
+    def current_age(self) -> float:
         return self._current_age
 
     @property
-    def additional_years(self):
+    def additional_years(self) -> float:
         return self._additional_years
 
     @property
-    def total_years(self):
+    def total_years(self) -> float:
         return self._total_years

@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, date
 
 from longevity import Requester
 
@@ -13,13 +13,14 @@ class Main:
         self._dob = dob.date()
 
     @property
-    def sex(self):
+    def sex(self) -> str:
+        """Returns the sex input parameter"""
         return self._sex
 
     @property
-    def dob(self):
+    def dob(self) -> date:
         return self._dob
 
-    def run(self):
+    def run(self) -> Requester:
         """Runs the calculator"""
         return Requester(self.sex, self.dob)
