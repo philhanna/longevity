@@ -6,7 +6,7 @@ To install
 git clone git@github.com:philhanna/life_expectancy
 cd life_expectancy
 pip install -r requirements.txt
-pip install .
+pip install .    # Note the dot after install!
 ```
 then copy `longevity.py` to a directory in your `PATH`.
 
