@@ -46,7 +46,7 @@ Estimate as of Tuesday June 7, 2022 20:53:51 EDT.
 ```
 You can use a [**finite state machine**](https://en.wikipedia.org/wiki/Finite-state_machine)
 to parse this.
-Could also use the Python [*Beautiful Soup*](https://realpython.com/beautiful-soup-web-scraper-python/)
+Could also use the Python [*Beautiful Soup*](https://www.crummy.com/software/BeautifulSoup/)
 package
 
 
