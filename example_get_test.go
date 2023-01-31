@@ -2,9 +2,10 @@ package longevity_test
 
 import (
 	"fmt"
-	"longevity"
 	"os"
 	"time"
+
+	"github.com/philhanna/longevity"
 )
 
 // This example illustrates how to use the longevity package in a standalone mainline
