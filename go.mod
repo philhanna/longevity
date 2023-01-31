@@ -1,4 +1,4 @@
-module longevity
+module github.com/philhanna/longevity
 
 go 1.19
 

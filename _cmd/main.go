@@ -3,9 +3,10 @@ package main
 import (
 	"flag"
 	"fmt"
-	"longevity"
 	"os"
 	"time"
+
+	"github.com/philhanna/longevity"
 )
 
 const (
