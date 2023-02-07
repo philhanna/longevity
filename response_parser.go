@@ -1,4 +1,4 @@
-package longevity
+package main
 
 import (
 	"errors"
