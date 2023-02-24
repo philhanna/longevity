@@ -1,4 +1,4 @@
-package main
+package longevity
 
 import (
 	"fmt"
@@ -12,7 +12,7 @@ func ExampleGet() {
 	sex := "m"
 	dob, _ := time.Parse(ISO_FORMAT, "1943-12-18")
 	// Invoke the requester
-	resp, err := longevity.Get(sex, dob)
+	resp, err := Get(sex, dob)
 	if err != nil {
 		fmt.Fprintln(os.Stderr, err.Error())
 		return

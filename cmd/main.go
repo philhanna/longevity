@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 	"time"
+	"github.com/philhanna/longevity"
 )
 
 const (
@@ -49,14 +50,14 @@ func main() {
 
 	// Verify that date of birth is valid
 	dobString := flag.Arg(1)
-	dob, err := time.Parse(ISO_FORMAT, dobString)
+	dob, err := time.Parse(longevity.ISO_FORMAT, dobString)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Date of birth must be in YYYY-MM-DD format, not %q\n", dobString)
 		return
 	}
 
 	// Invoke the requester
-	resp, err := Get(sex, dob)
+	resp, err := longevity.Get(sex, dob)
 	if err != nil {
 		fmt.Fprintln(os.Stderr, err.Error())
 		return

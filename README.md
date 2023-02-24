@@ -12,5 +12,6 @@ Calculates life expectancy according to the Social Security Administration websi
 
 ## Gists:
 - [Joining strings](https://go.dev/play/p/cclrpbmVPph)
+  
 [idGoReportCard]: https://goreportcard.com/report/github.com/philhanna/longevity
 [idPkgGoDev]: https://pkg.go.dev/github.com/philhanna/longevity
