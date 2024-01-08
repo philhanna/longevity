@@ -8,6 +8,13 @@ import (
 	"time"
 )
 
+// FormatPostData creates a string of the data that will be used in the POST method
+func FormatPostData(sex string, dob time.Time) string {
+	mm, dd, yyyy := GetDateFields(dob)
+	s := fmt.Sprintf("sex=%s&monthofbirth=%s&dayofbirth=%s&yearofbirth=%s", sex, mm, dd, yyyy)
+	return s
+}
+
 // Get issues a POST request to the website, parses the response, and returns the results.
 //
 // Parameters:
@@ -49,13 +56,6 @@ func GetDateFields(dob time.Time) (monthOfBirth, dayOfBirth, yearOfBirth string)
 	dayOfBirth = fmt.Sprintf("%0d", dob.Day())
 	yearOfBirth = fmt.Sprintf("%4d", dob.Year())
 	return
-}
-
-// FormatPostData creates a dictionary of the data that will be used in the POST method
-func FormatPostData(sex string, dob time.Time) string {
-	mm, dd, yyyy := GetDateFields(dob)
-	s := fmt.Sprintf("sex=%s&monthofbirth=%s&dayofbirth=%s&yearofbirth=%s", sex, mm, dd, yyyy)
-	return s
 }
 
 // PostRequest posts the request and gets the response.
