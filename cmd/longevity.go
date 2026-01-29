@@ -56,12 +56,20 @@ func main() {
 		return
 	}
 
-	// Invoke the requester
-	resp, err := longevity.Get(sex, dob)
+	// Post this data in a request to the SSA website, and get the HTML it returns
+	html, err := longevity.DoRequest(sex, dob)
 	if err != nil {
 		fmt.Fprintln(os.Stderr, err.Error())
 		return
 	}
+
+	// Parse the HTML and create a Response object
+	resp, err := longevity.ParseResponse(html)
+	if err != nil {
+		fmt.Fprintln(os.Stderr, err.Error())
+		return
+	}
+
 	currentAge := resp.CurrentAge
 	additionalYears := resp.AdditionalYears
 	totalYears := resp.TotalYears
