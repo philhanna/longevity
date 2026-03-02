@@ -42,10 +42,10 @@ def get_life_expectancy(
     parser = parser or Bs4LongevityParser()
     clock = clock or SystemClock()
 
-    html = fetcher.fetch(sex=sex, dob=dob)
+    content = fetcher.fetch(sex=sex, dob=dob)
 
     try:
-        current_age, additional_years, total_years = parser.parse(html)
+        current_age, additional_years, total_years = parser.parse(content)
     except Exception as e:
         raise LongevityError(f"failed to parse SSA response: {e}") from e
 
