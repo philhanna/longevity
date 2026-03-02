@@ -1,7 +1,4 @@
-from __future__ import annotations
-
-from dataclasses import dataclass
-from datetime import date, datetime, timedelta
+from datetime import date, timedelta
 
 from ..domain.models import LifeExpectancy
 from .ports import Clock, LongevityHtmlFetcher, LongevityHtmlParser

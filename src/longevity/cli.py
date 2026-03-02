@@ -1,10 +1,10 @@
-from __future__ import annotations
-
 import argparse
 from datetime import datetime, date
 
 from .application.use_cases import get_life_expectancy
-from .adapters.bs4_parser import ISO_FORMAT
+
+
+ISO_FORMAT = "%Y-%m-%d"
 
 
 USAGE = """Gets life expectancy from the Social Security Administration's website.
@@ -16,7 +16,9 @@ positional arguments:
 
 
 def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
-    p = argparse.ArgumentParser(description=USAGE, formatter_class=argparse.RawDescriptionHelpFormatter)
+    p = argparse.ArgumentParser(
+        description=USAGE, formatter_class=argparse.RawDescriptionHelpFormatter
+    )
     p.add_argument("sex", help='"m" or "f"')
     p.add_argument("dob", help="Date of birth in YYYY-MM-DD format")
     return p.parse_args(argv)
