@@ -4,7 +4,7 @@ import argparse
 from datetime import datetime, date
 
 from .application.use_cases import get_life_expectancy
-from .domain.services import ISO_FORMAT
+from .adapters.bs4_parser import ISO_FORMAT
 
 
 USAGE = """Gets life expectancy from the Social Security Administration's website.

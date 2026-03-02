@@ -1,9 +1,24 @@
 from __future__ import annotations
+import re
 
 from bs4 import BeautifulSoup
 
-from ..domain.services import parse_current_age, parse_float
+from ..domain.services import parse_float
 
+ISO_FORMAT = "%Y-%m-%d"
+
+
+def parse_current_age(text: str) -> float:
+    """Parse strings like '68' or '68 and 3 months' into a float age."""
+    age = 0.0
+    m = re.search(r"(\d+)", text or "")
+    if m:
+        age = float(m.group(1))
+
+    m2 = re.search(r" and (\d+) month", text or "")
+    if m2:
+        age += float(m2.group(1)) / 12.0
+    return age
 
 class Bs4LongevityParser:
     """Outbound adapter: parses SSA HTML using BeautifulSoup.
