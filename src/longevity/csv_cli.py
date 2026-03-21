@@ -1,11 +1,9 @@
 import argparse
 import csv
 import sys
-from datetime import datetime
 
 from .application.use_cases import get_life_expectancy, LongevityError
-
-ISO_FORMAT = "%Y-%m-%d"
+from .adapters.date_parser import parse_date
 
 OUTPUT_COLUMNS = ["current_age", "additional_years", "total_years", "estimated_death_date"]
 
@@ -18,6 +16,9 @@ def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     p.add_argument("output", help="Output CSV file path")
     p.add_argument("--sex-col", default="Sex", help='Column name for sex (default: "Sex")')
     p.add_argument("--dob-col", default="DOB", help='Column name for date of birth (default: "DOB")')
+    p.add_argument("--date-fmt", default=None, metavar="FMT",
+                   help="Pin a specific strptime format for DOB (e.g. \"%%d/%%m/%%Y\"). "
+                        "Omit to auto-detect from common formats.")
     return p.parse_args(argv)
 
 
@@ -63,7 +64,7 @@ def main(argv: list[str] | None = None) -> int:
             dob_str = row[ns.dob_col].strip()
 
             try:
-                dob = datetime.strptime(dob_str, ISO_FORMAT).date()
+                dob = parse_date(dob_str, fmt=ns.date_fmt)
                 result = get_life_expectancy(sex, dob)
                 dd = result.estimated_death_date
                 row.update({

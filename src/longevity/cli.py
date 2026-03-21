@@ -1,21 +1,16 @@
 import argparse
-from datetime import datetime, date
 
 from .application.use_cases import get_life_expectancy
-
-
-ISO_FORMAT = "%Y-%m-%d"
+from .adapters.date_parser import parse_date
 
 
 USAGE = "Gets life expectancy from the Social Security Administration's website."
 
 
 def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
-    p = argparse.ArgumentParser(
-        description=USAGE, formatter_class=argparse.RawDescriptionHelpFormatter
-    )
+    p = argparse.ArgumentParser(description=USAGE)
     p.add_argument("sex", help='"m" or "f"')
-    p.add_argument("dob", help="Date of birth in YYYY-MM-DD format")
+    p.add_argument("dob", help="Date of birth (YYYY-MM-DD, MM/DD/YYYY, 'December 18, 1957', etc.)")
     return p.parse_args(argv)
 
 
@@ -23,10 +18,9 @@ def main(argv: list[str] | None = None) -> int:
     ns = _parse_args(argv)
     sex = ns.sex
     try:
-        dob_dt = datetime.strptime(ns.dob, ISO_FORMAT)
-        dob: date = dob_dt.date()
-    except Exception:
-        print("dob must be in YYYY-MM-DD format")
+        dob = parse_date(ns.dob)
+    except ValueError as e:
+        print(str(e))
         return 2
 
     try:
