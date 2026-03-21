@@ -1,9 +1,8 @@
-import os
-import subprocess
-import sys
+import runpy
 from datetime import date, datetime
-from pathlib import Path
 from unittest.mock import MagicMock, patch
+
+import pytest
 
 from longevity.cli import main
 from longevity.domain.models import LifeExpectancy
@@ -58,11 +57,10 @@ def test_dob_parsed_correctly():
     assert captured_dob["dob"] == date(1990, 6, 15)
 
 
-def test_main_block_exit_code():
-    src = str(Path(__file__).resolve().parents[1] / "src")
-    result = subprocess.run(
-        [sys.executable, "-m", "longevity.cli", "m", "not-a-date"],
-        capture_output=True,
-        env={**os.environ, "PYTHONPATH": src},
-    )
-    assert result.returncode == 2
+def test_main_block_exit_code(monkeypatch):
+    import sys
+    monkeypatch.setattr(sys, "argv", ["longevity.cli", "m", "not-a-date"])
+    sys.modules.pop("longevity.cli", None)
+    with pytest.raises(SystemExit) as exc_info:
+        runpy.run_module("longevity.cli", run_name="__main__", alter_sys=True)
+    assert exc_info.value.code == 2
