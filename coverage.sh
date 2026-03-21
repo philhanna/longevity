@@ -10,4 +10,4 @@ python -m pytest "$SCRIPT_DIR/tests" \
     --cov-report=term-missing \
     "$@"
 
-xdg-open "$REPORT_DIR/index.html"
+xdg-open "$REPORT_DIR/index.html" >/dev/null 2>&1 &
