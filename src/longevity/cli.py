@@ -7,12 +7,7 @@ from .application.use_cases import get_life_expectancy
 ISO_FORMAT = "%Y-%m-%d"
 
 
-USAGE = """Gets life expectancy from the Social Security Administration's website.
-
-positional arguments:
-  sex        "m" or "f"
-  dob        Date of birth in YYYY-MM-DD format
-"""
+USAGE = "Gets life expectancy from the Social Security Administration's website."
 
 
 def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
