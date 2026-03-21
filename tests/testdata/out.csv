@@ -1,0 +1,5 @@
+Person,Sex,DOB,Current age,Expected total years,Remaining years,Expected death,current_age,additional_years,total_years,estimated_death_date,error
+Ringo Starr,m,7-Jul-1940,84.2,90.9,6.7,1-Jun-2031,,,,,time data '7-Jul-1940' does not match format '%Y-%m-%d'
+Paul McCartney,m,18-Jun-1942,82.6,90.1,7.5,24-Jul-2032,,,,,time data '18-Jun-1942' does not match format '%Y-%m-%d'
+Keith Richards,m,18-Dec-1943,80.8,89.2,8.4,28-Feb-2033,,,,,time data '18-Dec-1943' does not match format '%Y-%m-%d'
+Barack Obama,m,4-Aug-1961,63.3,83.9,20.6,28-Jun-2045,,,,,time data '4-Aug-1961' does not match format '%Y-%m-%d'

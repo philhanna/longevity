@@ -22,6 +22,7 @@ dev = [
 
 [project.scripts]
 longevity = "longevity.cli:main"
+longevity-batch = "longevity.csv_cli:main"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
