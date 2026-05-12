@@ -61,6 +61,26 @@ Open a new PowerShell window after the PATH change for it to take effect.
 
 ## Usage
 
+### Date formats
+
+Both CLIs accept dates of birth in any of the following formats:
+
+| Format           | Example              |
+|------------------|----------------------|
+| `YYYY-MM-DD`     | `1957-12-18`         |
+| `MM/DD/YYYY`     | `12/18/1957`         |
+| `DD/MM/YYYY`     | `18/12/1957`         |
+| `Month DD, YYYY` | `December 18, 1957`  |
+| `Mon DD, YYYY`   | `Dec 18, 1957`       |
+| `DD Month YYYY`  | `18 December 1957`   |
+| `DD Mon YYYY`    | `18 Dec 1957`        |
+| `DD-Month-YYYY`  | `18-December-1942`   |
+| `DD-Mon-YYYY`    | `18-Jun-1942`        |
+
+Formats are tried in the order shown; the first match wins. To pin a specific
+format in the batch CLI, use `--date-fmt` with a `strptime` format string
+(e.g. `--date-fmt "%d/%m/%Y"`).
+
 ### Single record
 
 ```
