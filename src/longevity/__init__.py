@@ -1,3 +1,4 @@
+# longevity
 """longevity - SSA life expectancy scraper.
 
 Public API is intentionally small: use `get_life_expectancy`.
