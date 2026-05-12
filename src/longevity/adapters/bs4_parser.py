@@ -1,3 +1,4 @@
+"""BeautifulSoup adapter for parsing SSA life-expectancy HTML into numeric fields."""
 import re
 
 from bs4 import BeautifulSoup
@@ -25,6 +26,7 @@ class Bs4LongevityParser:
     """
 
     def parse(self, html: str) -> tuple[float, float, float]:
+        """Extract (current_age, additional_years, total_years) from SSA response HTML."""
         soup = BeautifulSoup(html, "html.parser")
         table = soup.find("table")
         if table is None:

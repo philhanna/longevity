@@ -1,3 +1,4 @@
+"""Single-record CLI: prints SSA life-expectancy for one person."""
 import argparse
 
 from longevity.application.use_cases import get_life_expectancy
@@ -8,6 +9,7 @@ USAGE = "Gets life expectancy from the Social Security Administration's website.
 
 
 def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
+    """Parse and return CLI arguments for sex and date of birth."""
     p = argparse.ArgumentParser(description=USAGE)
     p.add_argument("sex", help='"m" or "f"')
     p.add_argument("dob", help="Date of birth (YYYY-MM-DD, MM/DD/YYYY, 'December 18, 1957', etc.)")
@@ -15,6 +17,7 @@ def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
 
 
 def main(argv: list[str] | None = None) -> int:
+    """Entry point: print life-expectancy stats to stdout; return exit code."""
     ns = _parse_args(argv)
     sex = ns.sex
     try:

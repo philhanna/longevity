@@ -1,3 +1,4 @@
+"""Immutable domain model for a parsed SSA life-expectancy result."""
 from dataclasses import dataclass
 from datetime import datetime
 

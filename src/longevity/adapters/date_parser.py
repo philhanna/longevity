@@ -1,3 +1,4 @@
+"""Date-parsing adapter supporting multiple common date string formats."""
 from datetime import date, datetime
 
 FORMATS = [

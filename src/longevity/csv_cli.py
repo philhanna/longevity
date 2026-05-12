@@ -1,3 +1,4 @@
+"""Batch CSV CLI: reads a CSV of people, writes life-expectancy results to a new CSV."""
 import argparse
 import csv
 import sys
@@ -9,6 +10,7 @@ OUTPUT_COLUMNS = ["current_age", "additional_years", "total_years", "estimated_d
 
 
 def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
+    """Parse and return CLI arguments for the batch CSV workflow."""
     p = argparse.ArgumentParser(
         description="Batch life-expectancy calculator. Reads a CSV, calls the SSA calculator for each row, writes results to an output CSV."
     )
@@ -23,6 +25,7 @@ def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
 
 
 def main(argv: list[str] | None = None) -> int:
+    """Entry point: process input CSV and write results to output CSV; return exit code."""
     ns = _parse_args(argv)
 
     try:

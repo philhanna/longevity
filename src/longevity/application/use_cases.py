@@ -1,3 +1,4 @@
+"""Application use cases for the SSA life-expectancy service."""
 from datetime import date, timedelta
 
 from longevity.domain.models import LifeExpectancy
@@ -8,10 +9,11 @@ from longevity.adapters.system_clock import SystemClock
 
 
 class LongevityError(RuntimeError):
-    pass
+    """Raised when the SSA request or response processing fails."""
 
 
 def _validate_inputs(sex: str, dob: date) -> None:
+    """Raise LongevityError if sex or dob are not the expected types/values."""
     if sex not in {"m", "f"}:
         raise LongevityError('sex must be "m" or "f"')
     if not isinstance(dob, date):

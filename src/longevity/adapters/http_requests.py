@@ -1,3 +1,4 @@
+"""HTTP adapter for posting to the SSA longevity CGI and returning the response HTML."""
 from datetime import date
 
 import requests
@@ -11,10 +12,12 @@ class RequestsLongevityFetcher:
     """Outbound adapter: talks to SSA longevity CGI via HTTP POST."""
 
     def __init__(self, *, url: str = SSA_URL, timeout_seconds: int = TIMEOUT_SECONDS) -> None:
+        """Configure the fetcher with an optional URL override and request timeout."""
         self._url = url
         self._timeout = timeout_seconds
 
     def fetch(self, *, sex: str, dob: date) -> str:
+        """POST to the SSA CGI and return the response body as a string."""
         # SSA expects monthofbirth 0-based (Jan=0)
         values = {
             "sex": sex,
