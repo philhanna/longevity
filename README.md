@@ -4,9 +4,60 @@ Calculates life expectancy according to the Social Security Administration websi
 
 ## Installation
 
+### macOS / Linux
+
 ```bash
+# Clone the repository
+git clone https://github.com/philhanna/life_expectancy.git
+cd life_expectancy
+
+# Create and activate a virtual environment
+python3 -m venv venv
+source venv/bin/activate
+
+# Install the package and its dependencies
 pip install .
+
+# Symlink the CLIs into ~/.local/bin so they are available outside the venv.
+# ~/.local/bin is on PATH by default on most Linux distros and macOS (via .profile).
+mkdir -p ~/.local/bin
+ln -sf "$(pwd)/venv/bin/longevity"       ~/.local/bin/longevity
+ln -sf "$(pwd)/venv/bin/longevity-batch" ~/.local/bin/longevity-batch
 ```
+
+If `~/.local/bin` is not yet on your PATH, add the following line to `~/.bashrc` or `~/.zshrc` and restart your shell:
+
+```bash
+export PATH="$HOME/.local/bin:$PATH"
+```
+
+### Windows
+
+Run the following commands in PowerShell:
+
+```powershell
+# Clone the repository
+git clone https://github.com/philhanna/life_expectancy.git
+cd life_expectancy
+
+# Create and activate a virtual environment
+python -m venv venv
+venv\Scripts\Activate.ps1
+
+# Install the package and its dependencies
+pip install .
+
+# Add the venv's Scripts folder to your user PATH so the CLIs are
+# available in any new shell without activating the venv first.
+$scripts = "$PWD\venv\Scripts"
+[Environment]::SetEnvironmentVariable(
+    "PATH",
+    "$([Environment]::GetEnvironmentVariable('PATH','User'));$scripts",
+    "User"
+)
+```
+
+Open a new PowerShell window after the PATH change for it to take effect.
 
 ## Usage
 
