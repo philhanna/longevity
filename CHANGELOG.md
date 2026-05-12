@@ -3,6 +3,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.2.0] - 2026-05-12
+
+- Move all dependencies to pyproject.toml, remove requirements.txt
+- Add pytest-cov to dev dependencies
+- Added batch option
+- Fix for issue #1
+- Fixed help display
+- Added architecture document
+- Added unit tests and increased coverage
+
 ## [Unreleased]
 
 - Added this changelog
