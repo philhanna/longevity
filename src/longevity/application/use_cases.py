@@ -1,10 +1,10 @@
 from datetime import date, timedelta
 
-from ..domain.models import LifeExpectancy
-from .ports import Clock, LongevityHtmlFetcher, LongevityHtmlParser
-from ..adapters.bs4_parser import Bs4LongevityParser
-from ..adapters.http_requests import RequestsLongevityFetcher
-from ..adapters.system_clock import SystemClock
+from longevity.domain.models import LifeExpectancy
+from longevity.ports import Clock, LongevityHtmlFetcher, LongevityHtmlParser
+from longevity.adapters.bs4_parser import Bs4LongevityParser
+from longevity.adapters.http_requests import RequestsLongevityFetcher
+from longevity.adapters.system_clock import SystemClock
 
 
 class LongevityError(RuntimeError):

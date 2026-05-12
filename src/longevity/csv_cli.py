@@ -2,8 +2,8 @@ import argparse
 import csv
 import sys
 
-from .application.use_cases import get_life_expectancy, LongevityError
-from .adapters.date_parser import parse_date
+from longevity.application.use_cases import get_life_expectancy, LongevityError
+from longevity.adapters.date_parser import parse_date
 
 OUTPUT_COLUMNS = ["current_age", "additional_years", "total_years", "estimated_death_date"]
 

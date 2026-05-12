@@ -1,7 +1,7 @@
 import argparse
 
-from .application.use_cases import get_life_expectancy
-from .adapters.date_parser import parse_date
+from longevity.application.use_cases import get_life_expectancy
+from longevity.adapters.date_parser import parse_date
 
 
 USAGE = "Gets life expectancy from the Social Security Administration's website."

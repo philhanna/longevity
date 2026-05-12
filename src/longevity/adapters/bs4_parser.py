@@ -2,7 +2,7 @@ import re
 
 from bs4 import BeautifulSoup
 
-from ..domain.services import parse_float
+from longevity.domain.services import parse_float
 
 def parse_current_age(text: str) -> float:
     """Parse strings like '68' or '68 and 3 months' into a float age."""
