@@ -67,15 +67,15 @@ Both CLIs accept dates of birth in any of the following formats:
 
 | Format           | Example              |
 |------------------|----------------------|
-| `YYYY-MM-DD`     | `1957-12-18`         |
-| `MM/DD/YYYY`     | `12/18/1957`         |
-| `DD/MM/YYYY`     | `18/12/1957`         |
-| `Month DD, YYYY` | `December 18, 1957`  |
-| `Mon DD, YYYY`   | `Dec 18, 1957`       |
-| `DD Month YYYY`  | `18 December 1957`   |
-| `DD Mon YYYY`    | `18 Dec 1957`        |
-| `DD-Month-YYYY`  | `18-December-1942`   |
-| `DD-Mon-YYYY`    | `18-Jun-1942`        |
+| `YYYY-MM-DD`     | `1943-12-18`         |
+| `MM/DD/YYYY`     | `12/18/1943`         |
+| `DD/MM/YYYY`     | `18/12/1943`         |
+| `Month DD, YYYY` | `December 18, 1943`  |
+| `Mon DD, YYYY`   | `Dec 18, 1943`       |
+| `DD Month YYYY`  | `18 December 1943`   |
+| `DD Mon YYYY`    | `18 Dec 1943`        |
+| `DD-Month-YYYY`  | `18-December-1943`   |
+| `DD-Mon-YYYY`    | `18-Dec-1943`        |
 
 Formats are tried in the order shown; the first match wins. To pin a specific
 format in the batch CLI, use `--date-fmt` with a `strptime` format string
@@ -87,14 +87,14 @@ format in the batch CLI, use `--date-fmt` with a `strptime` format string
 longevity <sex> <dob>
 ```
 
-`sex` is `m` or `f`. `dob` accepts many formats (`YYYY-MM-DD`, `MM/DD/YYYY`, `December 18, 1957`, etc.).
+`sex` is `m` or `f`. `dob` accepts many formats (`YYYY-MM-DD`, `MM/DD/YYYY`, `December 18, 1943`, etc.).
 
 ```bash
-longevity m 1957-12-18
-# current age      = 68.40
-# additional years = 16.20
-# total years      = 84.60
-# estimated death  = 2042-06-19
+longevity m 1943-12-18
+current age      = 82.33
+additional years = 7.60
+total years      = 90.00
+estimated death  = 2033-12-17
 ```
 
 ### Batch CSV

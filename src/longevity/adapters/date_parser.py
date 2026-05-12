@@ -2,15 +2,15 @@
 from datetime import date, datetime
 
 FORMATS = [
-    "%Y-%m-%d",       # 1957-12-18  (ISO 8601 — try first)
-    "%m/%d/%Y",       # 12/18/1957  (US conventional)
-    "%d/%m/%Y",       # 18/12/1957  (European conventional)
-    "%B %d, %Y",      # December 18, 1957
-    "%b %d, %Y",      # Dec 18, 1957
-    "%d %B %Y",       # 18 December 1957
-    "%d %b %Y",       # 18 Dec 1957
-    "%d-%B-%Y",       # 18-December-1942
-    "%d-%b-%Y",       # 18-Jun-1942
+    "%Y-%m-%d",       # 1943-12-18  (ISO 8601 — try first)
+    "%m/%d/%Y",       # 12/18/1943  (US conventional)
+    "%d/%m/%Y",       # 18/12/1943  (European conventional)
+    "%B %d, %Y",      # December 18, 1943
+    "%b %d, %Y",      # Dec 18, 1943
+    "%d %B %Y",       # 18 December 1943
+    "%d %b %Y",       # 18 Dec 1943
+    "%d-%B-%Y",       # 18-December-1943
+    "%d-%b-%Y",       # 18-Dec-1943
 ]
 
 
